@@ -1,43 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --bg-color: #0d1117;
-  --text-primary: #c9d1d9;
-  --text-secondary: #8b949e;
-  --accent-color: #58a6ff;
-  --border-color: #30363d;
-  --card-bg: #0d1117;
+  /* Colors matched to the cloned screenshot */
+  --page-bg: #0b1121;
+  --container-bg: #151e32;
+  --text-primary: #94a3b8;
+  --accent-color: #38bdf8;
+  --border-color: #334155;
   --font-mono: 'Courier New', Courier, monospace;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--page-bg);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
-  padding: 50px 20px;
+  padding: 40px 20px;
   -webkit-font-smoothing: antialiased;
 }
 
-.hero-section, 
-.skills-section, 
-.projects-section, 
-.education-section, 
-.action-footer {
-  max-width: 800px;
+/* New container to create the centered 'card' layout */
+.main-container {
+  background-color: var(--container-bg);
+  max-width: 850px;
   margin: 0 auto;
-  width: 100%;
+  padding: 50px 60px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile padding adjustment for the container */
+@media (max-width: 600px) {
+  .main-container {
+    padding: 30px 20px;
+  }
 }
 
 h1, h2, h3, h4 {
   margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #f8fafc;
 }
 
 .hero-section {
-  margin-top: 2rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 2rem;
@@ -45,19 +53,18 @@ h1, h2, h3, h4 {
 
 .hero-section h1 {
   font-size: 2.5rem;
-  color: #ffffff;
   letter-spacing: -0.5px;
 }
 
 .hero-section h2 {
-  font-size: 1.2rem;
-  color: var(--accent-color);
-  font-family: var(--font-mono);
-  font-weight: normal;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .location {
-  color: var(--text-secondary);
+  color: var(--accent-color);
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
 }
@@ -73,8 +80,7 @@ h1, h2, h3, h4 {
 }
 
 .skills-section h3 {
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.3rem;
   margin-bottom: 1.2rem;
 }
 
@@ -84,14 +90,23 @@ h1, h2, h3, h4 {
   gap: 12px;
 }
 
+/* Updated Skill Tags for Hover Responsiveness */
 .skill-tag {
-  background-color: #21262d;
+  background-color: transparent;
   border: 1px solid var(--border-color);
-  padding: 6px 14px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: 4px;
   font-size: 0.85rem;
-  color: var(--accent-color);
-  font-family: var(--font-mono);
+  color: var(--text-primary);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background-color: var(--accent-color);
+  color: #000000;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 .projects-section {
@@ -101,8 +116,7 @@ h1, h2, h3, h4 {
 }
 
 .projects-section h3 {
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -119,7 +133,7 @@ h1, h2, h3, h4 {
 }
 
 .project-card {
-  background-color: var(--card-bg);
+  background-color: transparent;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: 1.5rem;
@@ -129,19 +143,18 @@ h1, h2, h3, h4 {
 }
 
 .project-card:hover {
-  border-color: #8b949e;
+  border-color: var(--accent-color);
 }
 
 .project-card h4 {
   color: var(--accent-color);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-top: 0;
   margin-bottom: 0.8rem;
 }
 
 .project-card p {
   font-size: 0.95rem;
-  color: var(--text-secondary);
   margin: 0;
   flex-grow: 1;
 }
@@ -153,8 +166,7 @@ h1, h2, h3, h4 {
 }
 
 .education-section h3 {
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -173,12 +185,12 @@ h1, h2, h3, h4 {
 }
 
 .education-list strong {
-  color: #ffffff;
+  color: #f8fafc;
 }
 
 .action-footer {
   margin-top: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -189,7 +201,7 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #21262d;
+  background-color: transparent;
   color: var(--text-primary);
   text-decoration: none;
   padding: 10px 20px;
@@ -200,9 +212,9 @@ h1, h2, h3, h4 {
 }
 
 .footer-link:hover {
-  background-color: #30363d;
-  border-color: #8b949e;
-  color: #ffffff;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000000;
 }
 
 .footer-link i {
